@@ -5,7 +5,7 @@ import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 import Reguster from './page/auth/reguster/Reguster';
 import Login from './page/auth/login/Login';
 import Header from './page/share/header/Header';
-import {useEffect } from 'react';
+import {useEffect,useState } from 'react';
 import { getUser, profileData } from './store/feature/auth/authSlice';
 import { useDispatch } from "react-redux"
 import { Toaster } from 'react-hot-toast';
@@ -45,9 +45,10 @@ function App() {
   return (
     <div>
       <Router>
+     
         <Header />
         <Toaster />
-        <Suspense fallback={<span>Plese wait...</span>}>
+        <Suspense fallback={<p>Loding...</p>}>
         <Routes>
           <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>} />
           <Route path='/node' element={<PrivateRoute><Node /></PrivateRoute>} />

@@ -18,8 +18,10 @@ const ShowNode = ({ node }) => {
   const { title, text, _id, color,createdAt } = node;
 
   const inputText = () => {
+   const parse = new DOMParser();
+   const parseDocmunt = parse.parseFromString(text,"text/html")
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(parseDocmunt.body.textContent);
       navigator.clipboard.readText();
       toast.success("Copid Successfull")
    }
@@ -48,7 +50,8 @@ const ShowNode = ({ node }) => {
       <span className='text-xs text-white font-semibold'>{moment(createdAt).fromNow()}</span>
       <hr />
      
-          <p className='text-[14px] text-md font-bold text-white'>{hide ? `${text?.slice(0, 300)}` :text}</p>
+          {/* <p className='text-[14px] text-md font-bold text-white'>{hide ? `${text?.slice(0, 300)}` :text}</p> */}
+          <p className='text-[14px] text-md font-bold text-white' dangerouslySetInnerHTML={{__html:hide ? `${text?.slice(0, 300)}` :text}}/>
      
   </div>
   )

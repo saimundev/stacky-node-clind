@@ -4,6 +4,8 @@ import { addNode } from '../../store/feature/node/nodeSlice';
 import { useNavigate } from "react-router-dom"
 import toast from 'react-hot-toast';
 import { motion } from "framer-motion"
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 const Node = () => {
@@ -52,21 +54,16 @@ const Node = () => {
             animate={{y:"0px",opacity:1}}
             transition={{ duration: ".6"}}
       >
-          <form  className='md:w-1/3 sm:w-1/2 w-10/12 bg-blue-700 dark:bg-black p-4 rounded-lg' onSubmit={handleSubmit}>
+          <form  className='md:w-1/2 sm:w-1/2 w-10/12 bg-blue-700 dark:bg-black p-4 rounded-lg' onSubmit={handleSubmit}>
               <h5 className='text-center text-white md:text-2xl text-xl'>ADD NOTE</h5>
               <input type="text"
                   placeholder='Enter Title'
                   name="" id=""
-                  className='w-full mt-3 p-2 outline-none bg-transparent text-[18px] border-b border-white text-white rounded'
+                  className='w-full mt-3 mb-5 p-2 outline-none bg-transparent text-[18px] border-b border-white text-white rounded'
                   onChange={(e)=>setTitle(e.target.value)}
               />
-              <textarea type="text"
-                  name="" id=""
-                  cols="5" rows="4"
-                  className='w-full mt-5 p-2 outline-none bg-transparent text-[18px] border-b border-white text-white rounded' placeholder='Enter Text'
-                  onChange={(e)=>setText(e.target.value)}
-              ></textarea>
-              <div className="flex justify-center gap-3 mt-3 ">
+             <ReactQuill theme="snow"  value={text} className="h-[150px] text-[18px] font-semibold text-white " onChange={setText} />
+              <div className="flex justify-center gap-3  mt-[80px] ">
               {colors.map((color,index) => (
                   <div key={index} onClick={() => handleColor(color, index)} className="w-[30px] h-[30px] rounded-full cursor-pointer" style={{ background: color,border:`3px solid ${index === selectIndex ? "white":color}`}} ></div>
               ))}

@@ -36,7 +36,7 @@ const Profile = () => {
       <div className='grid md:grid-cols-[1fr_2fr] md:gap-4 gap-10'>
         <div className="shadow-xl px-2 pb-6 text-center">
           
-          <img src={updateUserData?.image ? `https://ntacky-node.onrender.com/${updateUserData?.image}`:profile}  alt="" className='rounded mx-auto w-[80%] h-[250px] object-cover' />
+          <img src={updateUserData?.image ? updateUserData?.image  :profile}  alt="" className='rounded mx-auto w-[80%] h-[250px] object-cover' />
           <h3 className='capitalize pt-3 dark:text-white font-bold'>{ updateUserData?.name}</h3>
           <h4 className='capitalize dark:text-white text-xl'>{ updateUserData?.profacation}</h4>
           <h4 className='capitalize dark:text-white text-sm mb-4'>{ updateUserData?.address}</h4>

@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
 import { motion } from "framer-motion"
 
+
  
 const Edit = () => {
   const [data, setData] = useState({
@@ -77,7 +78,7 @@ const Edit = () => {
     >     
       <div className='grid md:grid-cols-[1fr_2fr] gap-4'>
        <div className="">
-          <img src={updateUserData?.image ? `https://ntacky-node.onrender.com/${updateUserData?.image}` : profile} alt="" className='rounded md:w-[80%] w-[100%] h-[300px] object-cover' />
+          <img src={updateUserData?.image ? updateUserData?.image  : profile} alt="" className='rounded md:w-[80%] w-[100%] h-[300px] object-cover' />
         </div>
         <form onSubmit={handleSubmit}>
         <div className="shadow p-4 rounded">
