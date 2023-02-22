@@ -73,7 +73,7 @@ const Edit = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: ".6" }}
         >
-            <form className='md:w-1/3 sm:w-1/2 w-10/12 dark:bg-black bg-blue-700 p-4 rounded-lg' onSubmit={handleSubmit}>
+            <form className='md:w-1/2 sm:w-1/2 w-10/12 dark:bg-black bg-blue-700 p-4 rounded-lg' onSubmit={handleSubmit}>
                 <h5 className='text-center text-white md:text-2xl text-xl'>EDIT NOTE</h5>
                 <input type="text"
                     placeholder='Enter Title'
